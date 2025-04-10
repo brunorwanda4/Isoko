@@ -8,8 +8,8 @@ const AppLogo = () => {
       <MyImage
         src={Logo}
         alt="Demo Image"
-        wrapperClassName=""
-        imageClassName="transition duration-300 ease-in-out hover:scale-105"
+        className=""
+        classname="transition duration-300 ease-in-out hover:scale-105"
         width={40}
         height={40}
       />

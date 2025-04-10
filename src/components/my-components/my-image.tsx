@@ -3,8 +3,8 @@ import { useState } from "react";
 interface Props {
   src: string;
   alt?: string;
-  wrapperClassName?: string;
-  imageClassName?: string;
+  className?: string;
+  classname?: string;
   width?: number | string;
   height?: number | string;
   style?: React.CSSProperties;
@@ -13,8 +13,8 @@ interface Props {
 export const MyImage = ({
   src,
   alt = "Image",
-  wrapperClassName,
-  imageClassName,
+  className,
+  classname,
   width = "100%",
   height = "auto",
   style = {},
@@ -22,12 +22,12 @@ export const MyImage = ({
   const [hasError, setHasError] = useState(false);
 
   return (
-    <div className={wrapperClassName} style={{ position: "relative" }}>
+    <div className={className} style={{ position: "relative" }}>
       {!hasError ? (
         <img
           src={src}
           alt={alt}
-          className={imageClassName}
+          className={classname}
           loading="lazy"
           width={width}
           height={height}
