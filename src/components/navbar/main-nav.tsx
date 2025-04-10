@@ -1,4 +1,4 @@
-import CategoriesToggle from "./categories-toggle";
+// import CategoriesToggle from "./categories-toggle";
 import AppLogo from "./logo";
 import NavCard from "./nav-card";
 import SearchInput from "./search-input";
@@ -8,7 +8,7 @@ const MainNav = () => {
     <nav className=" px-2  py-2 border-b flex border-b-zinc-300 items-center justify-between">
       <div className=" flex space-x-4">
         <AppLogo />
-        <CategoriesToggle />
+        {/* <CategoriesToggle /> */}
       </div>
       <SearchInput />
       <NavCard />

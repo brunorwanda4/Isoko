@@ -1,0 +1,87 @@
+[
+    {
+      "id": 1,
+      "name": "Beat Headphones ",
+      "price": 150,
+      "image": "/pictures/beatheadphone.jpg",
+      "category": "Electronics",
+      "rating": 4.5,
+      "description": "High-quality wireless headphones with noise cancellation."
+    },
+    {
+      "id": 2,
+      "name": "Xbox elite series 2 controller",
+      "price": 200,
+    
+      "image": "/pictures/xboxeliteseries2controller.jpg",
+      "category": "Accessories",
+      "rating": 4.3,
+      "description": "Ergonomic gaming controller with customizable buttons."
+    },
+    {
+      "id": 3,
+      "name": " JBL headphones",
+      "price": 400,
+      "image": "/pictures/jblheadphone.jpg",
+      "category": "Electronics",
+      "rating": 4.8,
+      "description": "A sleek wireless headphone equalize your hearing health"
+    },
+    {
+      "id": 4,
+      "name": " Neon light podium",
+      "price": 120,
+      "image": "/pictures/neonlightpodium.jpg",
+      "category": "Accessories",
+      "rating": 4.3,
+      "description": "Portable light podium with amazing Color appearance."
+    },
+    {
+        "id": 5,
+        "name": "Hokz shoes",
+        "price": 80,
+        "image": "/pictures/hokzshoes.jpg",
+        "category": "Shoes",
+        "rating": 3.9,
+        "description": "High-performance running shoes ."
+      },
+      {
+        "id": 6,
+        "name": "Nike air zoom shoes",
+        "price": 100,
+        "image": "/pictures/nikeairzoom.jpg",
+        "category": "Shoes",
+        "rating": 4.5,
+        "description": "High-performance running shoes with excellent grip."
+      },
+      {
+        "id": 7,
+        "name": "New balance trail v3",
+        "price": 90,
+        "image": "/pictures/newbalancetrailv3.jpg",
+        "category": "Shoes",
+        "rating": 4.2,
+        "description": "Stylish and comfortable shoes for everyday wear."
+      },
+        {
+            "id": 8,
+            "name": "vans shoes",
+            "price": 120,
+            "image": "../public/pictures/vans.jpg",
+            "category": "Shoes",
+            "rating": 4.7,
+            "description": "High-performance running shoes with excellent grip."
+        },
+
+        {
+            "id": 9,
+            "name": "Laptop stand",
+            "price": 60,
+            "image": "../public/pictures/pcstand.jpg",
+            "category": "Accessories",
+            "rating": 5.0,
+            "description": "perfect laptop stand that is adjustable."
+        }
+      
+  ]
+  
