@@ -15,8 +15,8 @@ export const MyImage = ({
   alt = "Image",
   className,
   classname,
-  width = "100%",
-  height = "auto",
+  width = "",
+  height = "",
   style = {},
 }: Props) => {
   const [hasError, setHasError] = useState(false);

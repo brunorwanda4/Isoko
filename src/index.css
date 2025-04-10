@@ -6,3 +6,7 @@
 @theme {
   --font-display: "Georgia", serif;
 }
+
+.basic-title {
+  @apply text-2xl font-medium
+}
