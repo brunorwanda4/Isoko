@@ -1,10 +1,10 @@
-import { IoListOutline } from "react-icons/io5";
+import { FiAlignJustify } from "react-icons/fi";
 
 const CategoriesToggle = () => {
   return (
     <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost m-1 rounded-full">
-      <IoListOutline size={20}/> Categories
+      <FiAlignJustify size={20}/> Categories
       </div>
       <ul
         tabIndex={0}
