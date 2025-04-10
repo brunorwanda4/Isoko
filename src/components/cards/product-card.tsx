@@ -1,5 +1,6 @@
 import { PiShoppingCart } from "react-icons/pi";
 import { Image9 } from "../../assets/images";
+import { IoBagAddOutline } from "react-icons/io5";
 
 const ProductCard = () => {
   return (
@@ -33,7 +34,7 @@ const ProductCard = () => {
         </p>
         <div className="card-actions">
           <div className=" flex space-x-2 justify-end w-full">
-            <button className="  btn bg-indigo-500">Buy Now </button>
+            <button className="  btn bg-indigo-500"><IoBagAddOutline size={24}/> Buy Now </button>
             <button className="btn ">
               <PiShoppingCart size={24} /> Add to card
             </button>
