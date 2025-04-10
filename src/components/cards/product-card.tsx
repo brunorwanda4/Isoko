@@ -23,7 +23,8 @@ const ProductCard = () => {
             </div>
           </div>
           <div>
-            <h3 className=" link-hover">Electronics</h3>
+            <h3 className="basic-title">1200 RWF</h3>
+            <h4 className=" link-hover">Electronics</h4>
           </div>
         </div>
         <p>
