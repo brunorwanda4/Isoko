@@ -7,7 +7,7 @@ import { PiShoppingBagOpenFill } from "react-icons/pi";
 
 const MainNav = () => {
   return (
-    <nav className=" px-2  py-2 border-b flex border-b-zinc-300 items-center justify-between">
+    <nav className=" px-2  py-2 border-b flex border-b-zinc-300 fixed max-h-16 bg-white z-50 w-full items-center justify-between">
       <div className=" flex space-x-4 items-center">
         <AppLogo />
         <CategoriesToggle />

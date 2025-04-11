@@ -12,7 +12,6 @@ const HomePage = () => {
       </div>
       <PopularCategories />
       <PopularProducts />
-      <div className=" h-screen"></div>
     </div>
   );
 };

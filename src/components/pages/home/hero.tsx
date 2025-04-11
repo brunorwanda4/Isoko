@@ -13,9 +13,9 @@ const Hero = () => {
           Every Thing you need in market you have it here{" "}
         </p>
         <div className=" w-full justify-center  flex mt-6 group">
-          <Link to={"/categories"} className="">
+          <Link to={"/products"} className="">
             <button className=" btn btn-lg rounded-full w-fit bg-indigo-500 text-white border-indigo-600 group">
-              Choose Category
+              View all products
               <div className=" animate-spin group-hover:animate-none duration-200 ">
                 <PiShoppingBagOpenFill size={24} />
               </div>
