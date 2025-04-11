@@ -3,6 +3,7 @@ import HeroCard from "../components/pages/home/Hero-card";
 import PopularCategories from "../components/pages/home/popular-categories";
 import PopularProducts from "../components/pages/home/popular-products";
 
+
 const HomePage = () => {
   return (
     <div className=" px-4 pt-4 space-y-2 ">

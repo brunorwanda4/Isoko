@@ -58,8 +58,8 @@ node_modules
 # Images
 *.icns
 *.ico
-*.jpeg
-*.jpg
+# *.jpeg
+# *.jpg
 # *.png
 *.bmp
 

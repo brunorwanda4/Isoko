@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import ProductCard from "../../cards/product-card";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { faceProducts } from "../../../data/products";
 
 const PopularProducts = () => {
   return (
@@ -17,12 +18,11 @@ const PopularProducts = () => {
         </div>
       </div>
       <div className=" grid grid-cols-3 gap-4">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {faceProducts.slice(0, 6).map((item, index) => {
+          return (
+            <ProductCard product={item} key={index} />
+          );
+        })}
       </div>
     </div>
   );
