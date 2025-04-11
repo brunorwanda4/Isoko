@@ -1,53 +1,77 @@
+import { useEffect, useState } from "react";
 import { PiShoppingCart } from "react-icons/pi";
-import { Image9 } from "../../assets/images";
 import { IoBagAddOutline } from "react-icons/io5";
 import { cn } from "../../utils/utils";
+import { productProps } from "../../data/products";
 
 interface props {
   className?: string;
   noDescription?: boolean;
-  isSmallBtn ?: boolean
+  isSmallBtn?: boolean;
+  product: productProps;
 }
 
-const ProductCard = ({ className, isSmallBtn, noDescription }: props) => {
+const ProductCard = ({ className, isSmallBtn, noDescription, product }: props) => {
+  const [isInCart, setIsInCart] = useState(false);
+
+  // Check if the product is in the cart when the component loads
+  useEffect(() => {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    setIsInCart(cart.includes(product.id));
+  }, [product.id]);
+
+  const toggleCart = () => {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    if (cart.includes(product.id)) {
+      // Remove from cart
+      const updatedCart = cart.filter((id: string) => id !== product.id);
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      setIsInCart(false);
+    } else {
+      // Add to cart
+      cart.push(product.id);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      setIsInCart(true);
+    }
+  };
+
   return (
     <div className={cn("card bg-base-100 w-96 shadow-sm", className)}>
       <figure>
-        <img src={Image9} alt="Shoes" />
+        <img src={product.image} alt="Product" />
       </figure>
       <div className="card-body">
         <div>
-          <div className=" justify-between flex">
-            <h2 className="card-title">Product name</h2>
-            <div className=" flex">
-              <span className=" card-title">4.5</span>
+          <div className="justify-between flex">
+            <h2 className="card-title">{product.name}</h2>
+            <div className="flex">
+              <span className="card-title">{product.rating}</span>
               <div className="rating">
-                <div
-                  className="mask mask-star bg-orange-400"
-                  aria-label="1 star"
-                  aria-current="true"
-                />
+                <div className="mask mask-star bg-orange-400" />
               </div>
             </div>
           </div>
           <div>
-            <h3 className="basic-title">1200 RWF</h3>
-            <h4 className=" link-hover">Electronics</h4>
+            <h3 className="basic-title">{product.price} RWF</h3>
+            <h4 className="link-hover">{product.category}</h4>
           </div>
         </div>
-        {!noDescription && (
-          <p>
-            A card component has a figure, a body part, and inside body there
-            are title and actions parts
-          </p>
-        )}
+
+        {!noDescription && <p>{product.description}</p>}
+
         <div className="card-actions">
-          <div className=" flex space-x-2 justify-end w-full">
-            <button className={cn("btn bg-indigo-500" , isSmallBtn && "btn-sm")}>
-              <IoBagAddOutline size={24} /> Buy Now
+          <div className="flex space-x-2 justify-end w-full">
+            <button
+              onClick={toggleCart}
+              className={cn("btn", isSmallBtn && "btn-sm", isInCart ? "btn-error" : "")}
+            >
+              <PiShoppingCart size={24} />
+              {isInCart ? "Remove Cart" : "Add to Cart"}
             </button>
-            <button className={cn("btn" , isSmallBtn && "btn-sm")}>
-              <PiShoppingCart size={24} /> Add to card
+
+            <button className={cn("btn bg-indigo-500", isSmallBtn && "btn-sm")}>
+              <IoBagAddOutline size={24} /> Buy Now
             </button>
           </div>
         </div>
