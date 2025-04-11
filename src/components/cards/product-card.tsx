@@ -7,14 +7,21 @@ interface props {
   className?: string;
   noDescription?: boolean;
   isSmallBtn?: boolean;
-  product : productProps
+  product: productProps;
+  noAddToCard?: boolean;
 }
 
-const ProductCard = ({ className, product, isSmallBtn, noDescription }: props) => {
+const ProductCard = ({
+  className,
+  noAddToCard,
+  product,
+  isSmallBtn,
+  noDescription,
+}: props) => {
   return (
     <div className={cn("card bg-base-100 w-96 shadow-sm", className)}>
       <figure>
-        <img src={product.image} alt="Shoes" className=" max-h-54"/>
+        <img src={product.image} alt="Shoes" className=" max-h-54" />
       </figure>
       <div className="card-body">
         <div>
@@ -36,19 +43,17 @@ const ProductCard = ({ className, product, isSmallBtn, noDescription }: props) =
             <h4 className=" link-hover">{product.Category}</h4>
           </div>
         </div>
-        {!noDescription && (
-          <p>
-           {product.description}
-          </p>
-        )}
+        {!noDescription && <p>{product.description}</p>}
         <div className="card-actions">
           <div className=" flex space-x-2 justify-end w-full">
-            <button className={cn("btn bg-indigo-500", isSmallBtn && "btn-sm")}>
+            <button className={cn("btn bg-indigo-500", isSmallBtn && "btn-sm" , noAddToCard && "w-full")}>
               <IoBagAddOutline size={24} /> Buy Now
             </button>
-            <button className={cn("btn", isSmallBtn && "btn-sm")}>
-              <PiShoppingCart size={24} /> Add to card
-            </button>
+            {!noAddToCard && (
+              <button className={cn("btn", isSmallBtn && "btn-sm")}>
+                <PiShoppingCart size={24} /> Add to card
+              </button>
+            )}
           </div>
         </div>
       </div>
