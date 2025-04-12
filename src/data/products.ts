@@ -1,13 +1,13 @@
 import { Categories } from "../utils/categories";
 
 export interface productProps {
-    name: string;
-    price: number;
-    description: string;
-    image : string;
-    category: typeof Categories[number]["name"]; // Clothes | Shoes | Bags | Accessories | Electronics | Beauty
-    rating: number;
-    id: string;
+  name: string;
+  price: number;
+  description: string;
+  image: string;
+  category: typeof Categories[number]["name"]; // Clothes | Shoes | Bags | Accessories | Electronics | Beauty
+  rating: number;
+  id: string;
 }
 
 export const fakeProducts: productProps[] = [
