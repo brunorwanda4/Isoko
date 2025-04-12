@@ -13,7 +13,7 @@ const NavCard = () => {
         cartIds.includes(product.id)
       );
       setCartProducts(filteredProducts);
-    }, 1000); // every 1 second
+    }, 1000);
   
     return () => clearInterval(interval);
   }, []);

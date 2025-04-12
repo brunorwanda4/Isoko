@@ -1,24 +1,20 @@
-// src/components/HeroCard.tsx
 import { useEffect, useState } from "react";
 import { Image6 } from "../../../assets/images";
 import { fakeProducts, productProps } from "../../../data/products";
 
 const HeroCard = () => {
-  const [cartProducts, setCartProducts] = useState<productProps[]>([]);
-
+  const [lastProduct, setLastProduct] = useState<productProps | null>(null);
   useEffect(() => {
     const interval = setInterval(() => {
       const cartIds = JSON.parse(localStorage.getItem("cart") || "[]");
       const filteredProducts = fakeProducts.filter((product) =>
         cartIds.includes(product.id)
       );
-      setCartProducts(filteredProducts);
+      setLastProduct(filteredProducts[0]);
     }, 1000);
 
     return () => clearInterval(interval);
   }, []);
-
-  const lastProduct = cartProducts[0];
 
   return (
     <div>
@@ -30,9 +26,7 @@ const HeroCard = () => {
             </div>
           </div>
           <div className="card-body absolute bg-gradient-to-b bottom-0 from-transparent to-black text-white rounded-b-2xl w-full">
-            <h2 className="card-title">
-              {lastProduct.name} ID: {lastProduct.id}
-            </h2>
+            <h2 className="card-title">{lastProduct.name}</h2>
             <p>{lastProduct.description}</p>
             <button className="card-title text-indigo-500 btn btn-ghost w-fit">
               Shop Now

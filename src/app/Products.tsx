@@ -5,7 +5,7 @@ import ProductAside from "../components/pages/products/products-aside";
 import { fakeProducts, productProps } from "../data/products";
 
 
-const shuffleArray = (arr: productProps[]) => {
+export const ShuffleArray = (arr: productProps[]) => {
   const array = [...arr];
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -22,7 +22,7 @@ const Products = () => {
     const filtered = selectedCategory
       ? fakeProducts.filter((item) => item.category === selectedCategory)
       : fakeProducts;
-    return shuffleArray(filtered);
+    return ShuffleArray(filtered);
   }, [selectedCategory]);
 
   return (

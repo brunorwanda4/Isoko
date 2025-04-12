@@ -14,21 +14,21 @@ const CategoriesToggle = () => {
       </div>
       <ul
         tabIndex={0}
-        className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+        className="dropdown-content dropdown-center menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
       >
-        {Categories.map((items, index) => {
+        {Categories.map((item, index) => {
           return (
             <li key={index}>
-              <Link to={`/products?category=${items.name}`} className=" flex space-x-1">
+              <Link to={`/products?category=${item.name}`} className=" flex space-x-1">
                 <div className="avatar">
                   <div className="w-8 rounded">
                     <img
-                      src={items.image}
+                      src={item.image}
                       alt="Tailwind-CSS-Avatar-component"
                     />
                   </div>
                 </div>
-                <span>{items.name}</span>
+                <span>{item.name}</span>
               </Link>
             </li>
           );
