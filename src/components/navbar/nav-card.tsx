@@ -7,14 +7,17 @@ const NavCard = () => {
   const [cartProducts, setCartProducts] = useState<productProps[]>([]);
 
   useEffect(() => {
-    const cartIds = JSON.parse(localStorage.getItem("cart") || "[]");
-
-    const filteredProducts = fakeProducts.filter((product) =>
-      cartIds.includes(product.id)
-    );
-
-    setCartProducts(filteredProducts);
+    const interval = setInterval(() => {
+      const cartIds = JSON.parse(localStorage.getItem("cart") || "[]");
+      const filteredProducts = fakeProducts.filter((product) =>
+        cartIds.includes(product.id)
+      );
+      setCartProducts(filteredProducts);
+    }, 1000); // every 1 second
+  
+    return () => clearInterval(interval);
   }, []);
+  
 
   return (
     <div>
@@ -27,7 +30,7 @@ const NavCard = () => {
           >
             <PiShoppingCart size={24} />
           </button>
-          {cartProducts.length}
+          <div className="badge bg-amber-500">{cartProducts.length}</div>
         </div>
         <ul
           tabIndex={0}

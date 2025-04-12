@@ -81,7 +81,7 @@ const ProductCard = ({
               {isInCart ? "Remove Cart" : "Add to Cart"}
             </button>
 
-            <button className={cn("btn bg-indigo-500", isSmallBtn && "btn-sm")}>
+            <button className={cn("btn bg-amber-500", isSmallBtn && "btn-sm")}>
               <IoBagAddOutline size={24} /> Buy Now
             </button>
           </div>

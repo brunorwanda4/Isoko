@@ -1,5 +1,6 @@
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Categories } from "../../../utils/categories";
+import { fakeProducts } from "../../../data/products";
 
 const ProductAside = () => {
   const navigate = useNavigate();
@@ -15,37 +16,30 @@ const ProductAside = () => {
   return (
     <aside className="w-80 border-r border-r-zinc-300 px-4">
       <div>
-        <h3 className="basic-title">All Categories</h3>
+        <Link to={"/products"} className=" font-medium text-lg">All Categories</Link>
         <ul className="flex flex-col space-y-2 mt-2">
           {Categories.map((item, index) => {
             const isSelected = selectedCategory === item.name;
-
+            const total = fakeProducts.filter((i) => i.category === item.name).length;
             return (
               <li
                 key={index}
-                className={`btn btn-ghost justify-start cursor-pointer ${
+                className={`btn btn-ghost btn-sm justify-start cursor-pointer ${
                   isSelected ? "bg-zinc-200" : ""
                 }`}
                 onClick={() => handleCategoryClick(item.name)}
               >
                 <div className="flex w-full justify-between items-center">
                   <div className="flex space-x-1 items-center">
-                    <div className="avatar">
-                      <div className="w-10 rounded-full">
-                        <img
-                          src={item.image}
-                          alt={item.name}
-                        />
-                      </div>
-                    </div>
-                    <span className="font-medium text-lg">{item.name}</span>
+                    <input
+                      type="checkbox"
+                      className="checkbox checkbox-md"
+                      checked={isSelected}
+                      readOnly
+                    />
+                    <span className=" text-lg">{item.name}</span>
                   </div>
-                  <input
-                    type="checkbox"
-                    className="checkbox checkbox-md"
-                    checked={isSelected}
-                    readOnly
-                  />
+                  <span className="badge bg-amber-500">{total}</span>
                 </div>
               </li>
             );
