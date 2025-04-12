@@ -82,7 +82,7 @@ const ProductAside = () => {
   
 
   return (
-    <aside className=" w-80 border-r border-r-zinc-300 px-4 z-50 bg-base-100 space-y-2">
+    <aside className=" w-80 border-r border-r-zinc-300 px-4 bg-base-100 space-y-2">
       <div>
         <h3
           onClick={() => removeCategory()}

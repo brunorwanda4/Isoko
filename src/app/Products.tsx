@@ -47,13 +47,13 @@ const Products = () => {
         <h1 className=" basic-title">
           {selectedCategory ? selectedCategory : "All Products"}
         </h1>
-        <div className=" grid grid-cols-3 gap-4">
+        <div className=" grid grid-cols-3 gap-4 max-lg:grid-cols-1">
           {mixedProducts.map((item, index) => (
             <ProductCard
               product={item}
               isSmallBtn
               noDescription
-              className=" w-[21.5rem]"
+              className=" w-[21.5rem] max-md:w-60"
               key={index}
             />
           ))}

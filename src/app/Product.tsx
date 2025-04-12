@@ -52,20 +52,21 @@ const Product = () => {
   };
 
   return (
-    <div className="px-4 pt-4 w-full flex space-y-4 flex-col">
-      <div className=" flex space-x-6">
+    <div className="px-4 pt-4 w-full flex flex-col space-y-6">
+      <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-6">
         <img
           src={product.image}
           alt={cn("product not found:", product.name)}
-          className="w-96 h-96 object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 hover:shadow-2xl"
+          className="w-full max-w-md h-80 md:h-96 object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 hover:shadow-2xl"
         />
-        <div className="space-y-4">
-          <h2 className="text-3xl font-bold">{product.name}</h2>
-          <p className="text-gray-600">{product.description}</p>
+        <div className="space-y-4 flex-1">
+          <h2 className="text-2xl md:text-3xl font-bold">{product.name}</h2>
+          <p className="text-gray-600 text-sm md:text-base">
+            {product.description}
+          </p>
 
-          {/* rating */}
           <div className="flex items-center space-x-2">
-            <div className="rating rating-xl">
+            <div className="rating rating-md md:rating-lg">
               {[...Array(5)].map((_, index) => (
                 <input
                   key={index}
@@ -78,34 +79,45 @@ const Product = () => {
                 />
               ))}
             </div>
-            <span className="text-lg font-medium text-gray-700">
+            <span className="text-sm md:text-lg font-medium text-gray-700">
               {product.rating.toFixed(1)}
             </span>
           </div>
-          <h3 className=" basic-title">{product.price} RWF</h3>
-          <div className=" flex space-x-2">
-            <button className=" btn btn-lg bg-amber-500">Buy now</button>
+
+          <h3 className="text-lg md:text-xl font-semibold">
+            {product.price} RWF
+          </h3>
+
+          <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+            <button className="btn btn-lg bg-amber-500 w-full sm:w-auto">
+              Buy now
+            </button>
             <button
               onClick={() => toggleCart()}
-              className={cn("btn btn-lg", isInCart ? "btn-error" : "")}
+              className={cn(
+                "btn btn-lg w-full sm:w-auto",
+                isInCart ? "btn-error" : ""
+              )}
             >
-              {" "}
               {isInCart ? "Remove Cart" : "Add to cart"}
             </button>
           </div>
-          <div className=" flex flex-col space-y-2">
-            <Link to={"/products"} className=" btn btn-lg w-full">
+
+          <div className="flex flex-col space-y-2">
+            <Link to={"/products"} className="btn btn-lg w-full">
               View all products
             </Link>
-            <Link to={"/card"} className=" btn btn-lg btn-primary">
+            <Link to={"/card"} className="btn btn-lg btn-primary w-full">
               <PiShoppingCart size={24} /> View all product in cards
             </Link>
           </div>
         </div>
       </div>
-      <div className=" space-y-4">
-        <h2 className=" basic-title">Some category</h2>
-        <div className=" grid grid-cols-4 gap-2">
+
+      {/* Related Products Section */}
+      <div className="space-y-4">
+        <h2 className="basic-title">Some category</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {someCategory.map((item) => {
             if (item.id === product.id) return null;
             return (
@@ -113,7 +125,7 @@ const Product = () => {
                 product={item}
                 isSmallBtn
                 noDescription
-                className=" w-80"
+                className="w-full"
                 key={item.id}
               />
             );

@@ -84,7 +84,7 @@ const ProductCard = ({
         {!noDescription && <p>{product.description}</p>}
 
         <div className="card-actions">
-          <div className={cn("flex space-x-2 justify-end w-full" , isSmallBtn && "flex-row-reverse justify-between relative")}>
+          <div className={cn("flex space-x-2 justify-end w-full max-md:flex-col max-md:space-y-1" , isSmallBtn && "flex-row-reverse justify-between relative")}>
             <button
               onClick={() => toggleCart()}
               className={cn(
@@ -98,7 +98,7 @@ const ProductCard = ({
             </button>
             <Link
               to={`/products/${product.id}`}
-              className={cn("btn bg-amber-500", isSmallBtn && " w-2/3")}
+              className={cn("btn bg-amber-500", isSmallBtn && " w-2/3 max-md:w-full")}
             >
               <IoBagAddOutline size={24} /> Buy Now
             </Link>
