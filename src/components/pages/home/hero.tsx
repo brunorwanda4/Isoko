@@ -4,7 +4,7 @@ import { PiShoppingBagOpenFill } from "react-icons/pi";
 
 const Hero = () => {
   return (
-    <div className=" bg-gradient-to-tl to-red-200 from-amber-400 flex flex-row p-4 card hover:shadow-lg duration-200">
+    <div className=" bg-gradient-to-tl to-red-200 from-amber-400 flex flex-row p-4 card duration-150 hover:shadow-lg shadow-sm">
       <div className=" w-96 grid place-content-center">
         <h2 className=" font-light text-center text-4xl">
           Make Shopping Easy 👜 Done Ever

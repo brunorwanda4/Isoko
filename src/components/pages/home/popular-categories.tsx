@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Categories } from "../../../utils/categories";
 
 const PopularCategories = () => {
@@ -7,14 +8,14 @@ const PopularCategories = () => {
       <div className=" flex space-x-4 items-center justify-center mt-4">
         {Categories.map((item, index) => {
           return (
-            <div key={index} className=" flex flex-col space-y-1">
+            <Link to={`/products?category=${item.name}`} key={index} className=" flex flex-col space-y-1">
               <div className="avatar">
                 <div className="w-48 rounded-xl h-52  ">
                   <img src={item.image} />
                 </div>
               </div>
               <span className=" font-medium">{item.name}</span>
-            </div>
+            </Link>
           );
         })}
       </div>
