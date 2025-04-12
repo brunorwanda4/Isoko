@@ -42,10 +42,20 @@ const ProductCard = ({
   };
 
   return (
-    <div className={cn("card bg-base-100 w-96 shadow-sm", className)}>
+    <div
+      className={cn(
+        "card bg-base-100 w-96 duration-150 hover:shadow-lg shadow-sm ",
+        className
+      )}
+    >
       <div className="avatar">
         <div className="w-full h-60 rounded-b-none rounded-t-2xl">
-          <img alt={cn("Image not found:" , product.name)} src={product.image} />
+          <Link to={`/products/${product.id}`}>
+            <img
+              alt={cn("Image not found:", product.name)}
+              src={product.image}
+            />
+          </Link>
         </div>
       </div>
       <div className="card-body">
@@ -55,7 +65,13 @@ const ProductCard = ({
             <div className="flex">
               <span className="card-title">{product.rating}</span>
               <div className="rating">
-              <input type="radio" name={product.id} defaultChecked className="mask mask-star-2 bg-orange-400" aria-label="1 star" />
+                <input
+                  type="radio"
+                  name={product.id}
+                  defaultChecked
+                  className="mask mask-star-2 bg-orange-400"
+                  aria-label="1 star"
+                />
               </div>
             </div>
           </div>
@@ -78,12 +94,14 @@ const ProductCard = ({
               )}
             >
               <PiShoppingCart size={24} />
-              {isInCart ? "Remove Cart" : "Add to Cart"}
+              {isInCart ? "Remove Cart" : "Add to cart"}
             </button>
-            <Link to={`/products/${product.id}`}></Link>
-            <button className={cn("btn bg-amber-500", isSmallBtn && "btn-sm")}>
+            <Link
+              to={`/products/${product.id}`}
+              className={cn("btn bg-amber-500", isSmallBtn && "btn-sm")}
+            >
               <IoBagAddOutline size={24} /> Buy Now
-            </button>
+            </Link>
           </div>
         </div>
       </div>

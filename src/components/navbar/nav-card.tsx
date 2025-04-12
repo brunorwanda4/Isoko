@@ -58,7 +58,7 @@ const NavCard = () => {
             </li>
           )}
           <li>
-            <Link to="/card" className="text-indigo-500 hover:underline">
+            <Link to="/card" className="text-indigo-500 hover:underline justify-center">
               View all
             </Link>
           </li>
