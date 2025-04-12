@@ -17,12 +17,28 @@ const Products = () => {
   const [searchParams] = useSearchParams();
   const selectedCategory = searchParams.get("category");
 
+  const minPrice = Number(searchParams.get("minPrice")) || 0;
+  const maxPrice = Number(searchParams.get("maxPrice")) || Infinity;
+  const minRating = Number(searchParams.get("minRating")) || 1;
+  const maxRating = Number(searchParams.get("maxRating")) || 5;
+
   const mixedProducts = useMemo(() => {
-    const filtered = selectedCategory
-      ? fakeProducts.filter((item) => item.category === selectedCategory)
-      : fakeProducts;
+    let filtered = fakeProducts;
+
+    if (selectedCategory) {
+      filtered = filtered.filter((item) => item.category === selectedCategory);
+    }
+
+    filtered = filtered.filter(
+      (item) => item.price >= minPrice && item.price <= maxPrice
+    );
+
+    filtered = filtered.filter(
+      (item) => item.rating >= minRating && item.rating <= maxRating
+    );
+
     return ShuffleArray(filtered);
-  }, [selectedCategory]);
+  }, [selectedCategory, minPrice, maxPrice, minRating, maxRating]);
 
   return (
     <div className="flex">
