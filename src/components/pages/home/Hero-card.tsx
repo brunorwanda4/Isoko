@@ -1,18 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Image6 } from "../../../assets/images";
 import { fakeProducts, productProps } from "../../../data/products";
 
 const HeroCard = () => {
   const [lastProduct, setLastProduct] = useState<productProps | null>(null);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const cartIds = JSON.parse(localStorage.getItem("cart") || "[]");
-      const filteredProducts = fakeProducts.filter((product) =>
-        cartIds.includes(product.id)
-      );
-      setLastProduct(filteredProducts[0]);
-    }, 1000);
+  const lastProductIdRef = useRef<string | null>(null);
 
+  useEffect(() => {
+    const updateLastProduct = () => {
+      const cartIds: string[] = JSON.parse(localStorage.getItem("cart") || "[]");
+      const filteredProducts = fakeProducts.filter((product) => cartIds.includes(product.id));
+      const latest = filteredProducts[0] || null;
+      const latestId = latest?.id || null;
+
+      if (latestId !== lastProductIdRef.current) {
+        setLastProduct(latest);
+        lastProductIdRef.current = latestId;
+      }
+    };
+
+    updateLastProduct();
+    const interval = setInterval(updateLastProduct, 1000);
     return () => clearInterval(interval);
   }, []);
 

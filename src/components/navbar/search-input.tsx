@@ -33,7 +33,7 @@ const SearchInput = () => {
         <ul className="dropdown-content menu bg-base-100 rounded-box z-1 p-2 shadow-sm w-full max-h-80 overflow-y-auto flex flex-row">
           {filteredCartProducts.length > 0 ? (
             filteredCartProducts.map((item) => (
-              <li key={item.id}>
+              <li key={item.id} className=" w-full">
                  <Link to={`/products/${item.id}`} className=" flex space-x-1">
                 <div className="avatar">
                   <div className="w-10 rounded-full">

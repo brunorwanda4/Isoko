@@ -37,7 +37,7 @@ const NavCard = () => {
           className="dropdown-content menu bg-base-100 rounded-box z-1 w-60 p-2 shadow-sm"
         >
           {cartProducts.length > 0 ? (
-            cartProducts.slice(-5).map((item, index) => (
+            cartProducts.slice(-5).reverse().map((item, index) => (
               <li key={index}>
                 <Link
                   to={`/products/${item.id}`}

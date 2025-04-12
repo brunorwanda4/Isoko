@@ -3,6 +3,7 @@ import { PiShoppingCart } from "react-icons/pi";
 import { IoBagAddOutline } from "react-icons/io5";
 import { cn } from "../../utils/utils";
 import { productProps } from "../../data/products";
+import { Link } from "react-router-dom";
 
 interface props {
   className?: string;
@@ -19,7 +20,6 @@ const ProductCard = ({
 }: props) => {
   const [isInCart, setIsInCart] = useState(false);
 
-  // Check if the product is in the cart when the component loads
   useEffect(() => {
     const cart = JSON.parse(localStorage.getItem("cart") || "[]");
     setIsInCart(cart.includes(product.id));
@@ -70,7 +70,7 @@ const ProductCard = ({
         <div className="card-actions">
           <div className="flex space-x-2 justify-end w-full">
             <button
-              onClick={toggleCart}
+              onClick={() => toggleCart()}
               className={cn(
                 "btn",
                 isSmallBtn && "btn-sm",
@@ -80,7 +80,7 @@ const ProductCard = ({
               <PiShoppingCart size={24} />
               {isInCart ? "Remove Cart" : "Add to Cart"}
             </button>
-
+            <Link to={`/products/${product.id}`}></Link>
             <button className={cn("btn bg-amber-500", isSmallBtn && "btn-sm")}>
               <IoBagAddOutline size={24} /> Buy Now
             </button>
