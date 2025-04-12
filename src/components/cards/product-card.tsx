@@ -11,7 +11,12 @@ interface props {
   product: productProps;
 }
 
-const ProductCard = ({ className, isSmallBtn, noDescription, product }: props) => {
+const ProductCard = ({
+  className,
+  isSmallBtn,
+  noDescription,
+  product,
+}: props) => {
   const [isInCart, setIsInCart] = useState(false);
 
   // Check if the product is in the cart when the component loads
@@ -38,9 +43,11 @@ const ProductCard = ({ className, isSmallBtn, noDescription, product }: props) =
 
   return (
     <div className={cn("card bg-base-100 w-96 shadow-sm", className)}>
-      <figure>
-        <img src={product.image} alt="Product" />
-      </figure>
+      <div className="avatar">
+        <div className="w-full h-60 rounded-b-none rounded-t-2xl">
+          <img alt={cn("Image not found:" , product.name)} src={product.image} />
+        </div>
+      </div>
       <div className="card-body">
         <div>
           <div className="justify-between flex">
@@ -48,7 +55,7 @@ const ProductCard = ({ className, isSmallBtn, noDescription, product }: props) =
             <div className="flex">
               <span className="card-title">{product.rating}</span>
               <div className="rating">
-                <div className="mask mask-star bg-orange-400" />
+              <input type="radio" name={product.id} defaultChecked className="mask mask-star-2 bg-orange-400" aria-label="1 star" />
               </div>
             </div>
           </div>
@@ -64,7 +71,11 @@ const ProductCard = ({ className, isSmallBtn, noDescription, product }: props) =
           <div className="flex space-x-2 justify-end w-full">
             <button
               onClick={toggleCart}
-              className={cn("btn", isSmallBtn && "btn-sm", isInCart ? "btn-error" : "")}
+              className={cn(
+                "btn",
+                isSmallBtn && "btn-sm",
+                isInCart ? "btn-error" : ""
+              )}
             >
               <PiShoppingCart size={24} />
               {isInCart ? "Remove Cart" : "Add to Cart"}

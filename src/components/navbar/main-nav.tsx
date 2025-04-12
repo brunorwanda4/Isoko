@@ -9,7 +9,7 @@ const MainNav = () => {
   return (
     <nav className=" px-2  py-2 border-b flex border-b-zinc-300 fixed max-h-16 bg-white z-50 w-full items-center justify-between">
       <div className=" flex space-x-4 items-center">
-        <AppLogo />
+        <AppLogo noName/>
         <CategoriesToggle />
         <Link to={"/products"} className=" flex space-x-1"><PiShoppingBagOpenFill size={24} /> All Products</Link>
       </div>
