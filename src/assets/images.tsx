@@ -1,4 +1,4 @@
-import logo  from "../../public/Logo.png"
+import logo  from "../../public/logo.svg"
 import image1 from "./images/1.jpg"
 import image4 from "./images/4.jpg"
 import image3 from "./images/3.jpg"
