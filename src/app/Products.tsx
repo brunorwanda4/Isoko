@@ -37,7 +37,7 @@ const Products = () => {
               product={item}
               isSmallBtn
               noDescription
-              className=" w-72"
+              className=" w-[21.5rem]"
               key={index}
             />
           ))}

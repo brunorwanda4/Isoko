@@ -113,7 +113,7 @@ const Product = () => {
                 product={item}
                 isSmallBtn
                 noDescription
-                className=" w-72"
+                className=" w-80"
                 key={item.id}
               />
             );

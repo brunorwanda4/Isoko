@@ -61,7 +61,7 @@ const ProductCard = ({
       <div className="card-body">
         <div>
           <div className="justify-between flex">
-            <h2 className="card-title">{product.name}</h2>
+            <h2 className="card-title line-clamp-1">{product.name}</h2>
             <div className="flex">
               <span className="card-title">{product.rating}</span>
               <div className="rating">
@@ -84,21 +84,21 @@ const ProductCard = ({
         {!noDescription && <p>{product.description}</p>}
 
         <div className="card-actions">
-          <div className="flex space-x-2 justify-end w-full">
+          <div className={cn("flex space-x-2 justify-end w-full" , isSmallBtn && "flex-row-reverse justify-between relative")}>
             <button
               onClick={() => toggleCart()}
               className={cn(
-                "btn",
-                isSmallBtn && "btn-sm",
+                "btn tooltip tooltip-bottom",
                 isInCart ? "btn-error" : ""
               )}
+              data-tip={cn(isSmallBtn ? isInCart ? "Remove Cart" : "Add to cart" : null)}
             >
               <PiShoppingCart size={24} />
-              {isInCart ? "Remove Cart" : "Add to cart"}
+              {!isSmallBtn && (isInCart ? "Remove Cart" : "Add to cart")}
             </button>
             <Link
               to={`/products/${product.id}`}
-              className={cn("btn bg-amber-500", isSmallBtn && "btn-sm")}
+              className={cn("btn bg-amber-500", isSmallBtn && " w-2/3")}
             >
               <IoBagAddOutline size={24} /> Buy Now
             </Link>

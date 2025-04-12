@@ -60,7 +60,7 @@ const Card = () => {
     <section className=" px-4 pt-4 space-y-4">
       <div className=" flex flex-col space-y-2">
         <h1 className=" basic-title">Your products in cards</h1>
-        <div className=" flex space-x-6">
+        <div className=" flex space-x-6 items-center">
             <div className="avatar-group -space-x-6">
               {cartProducts.slice(0, 4).map((item) => {
                 return (
@@ -85,6 +85,7 @@ const Card = () => {
             <h3 className="text-lg font-medium">Remove all product in cart</h3>
             <button onClick={() => handleResetCart()} className=" btn btn-lg btn-error"><GoTrash size={23} /> Reset cart</button>
           </div>
+          <Link to={"/products"} className=" btn btn-lg btn-primary">View All products</Link>
         </div>
       </div>
       <div>
